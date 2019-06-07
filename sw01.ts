@@ -1,7 +1,7 @@
 /**
- * makecode BME280 digital pressure and humidity sensor Package.
- * From microbit/micropython Chinese community.
- * http://www.micropython.org.cn
+ * XinaBox SW01 extension for makecode
+ * Base on BME280 Package from microbit/micropython Chinese community.
+ *   https://github.com/makecode-extensions/BME280
  */
 
 enum BME280_I2C_ADDRESS {
