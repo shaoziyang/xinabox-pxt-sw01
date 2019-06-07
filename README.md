@@ -4,6 +4,9 @@ XinaBox SW01 extension for makecode. Base on [BME280 Package from microbit/micro
   
 ![](sw01.jpg)
 
+## Demo
+
+![](test.jpg)
 
 ## License
 
