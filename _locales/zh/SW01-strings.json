@@ -1,0 +1,8 @@
+{
+    "SW01.pressure|block": "气压",
+    "SW01.temperature|block": "温度",
+    "SW01.humidity|block": "湿度",
+    "SW01.PowerOn|block": "开启传感器",
+    "SW01.PowerOff|block": "关闭传感器",
+    "SW01.Address|block": "设置地址 %addr"
+}

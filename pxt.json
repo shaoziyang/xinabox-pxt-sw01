@@ -8,7 +8,8 @@
     },
     "files": [
         "README.md",
-        "sw01.ts"
+        "sw01.ts",
+        "_locales/zh/SW01-strings.json"
     ],
     "testFiles": [
         "test.ts"
