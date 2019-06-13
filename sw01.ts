@@ -13,7 +13,7 @@ enum BME280_I2C_ADDRESS {
 
 enum BME280_T {
     //% block="C"
-    T_C = 0
+    T_C = 0,
     //% block="F"
     T_F = 1
 }
@@ -121,11 +121,12 @@ namespace SW01 {
     /**
      * get temperature
      */
-    //% blockId="BME280_GET_TEMPERATURE" block="temperature"
+    //% blockId="BME280_GET_TEMPERATURE" block="temperature %u"
     //% weight=80 blockGap=8
-    export function temperature(): number {
+    export function temperature(u: BME280_T): number {
         get();
-        return T;
+        if (u == BME280_T.T_C) return T;
+        else return 32 + Math.idiv(T * 9, 5)
     }
 
     /**
@@ -164,4 +165,4 @@ namespace SW01 {
     export function Address(addr: BME280_I2C_ADDRESS) {
         BME280_I2C_ADDR = addr
     }
-}
+}  
