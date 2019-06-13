@@ -18,6 +18,13 @@ enum BME280_T {
     T_F = 1
 }
 
+enum BME280_P {
+    //% block="Pa"
+    Pa = 0,
+    //% block="hPa"
+    hPa = 1
+}
+
 /**
  * BME280 block
  */
@@ -111,11 +118,12 @@ namespace SW01 {
     /**
      * get pressure
      */
-    //% blockId="BME280_GET_PRESSURE" block="pressure"
+    //% blockId="BME280_GET_PRESSURE" block="pressure %u"
     //% weight=80 blockGap=8
-    export function pressure(): number {
+    export function pressure(u: BME280_P): number {
         get();
-        return P;
+        if (u == BME280_P.Pa) return P;
+        else return Math.idiv(P, 100)
     }
 
     /**
@@ -176,4 +184,4 @@ namespace SW01 {
     export function Address(addr: BME280_I2C_ADDRESS) {
         BME280_I2C_ADDR = addr
     }
-}  
+}
