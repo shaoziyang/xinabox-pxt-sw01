@@ -11,10 +11,17 @@ enum BME280_I2C_ADDRESS {
     ADDR_0x77 = 0x77
 }
 
+enum BME280_T {
+    //% block="C"
+    T_C = 0
+    //% block="F"
+    T_F = 1
+}
+
 /**
  * BME280 block
  */
-//% weight=100 color=#70c0f0 icon="\uf185" block="SW01"
+//% weight=100 color=#081620 icon="\uf185" block="SW01"
 namespace SW01 {
     let BME280_I2C_ADDR = BME280_I2C_ADDRESS.ADDR_0x76
 
