@@ -83,7 +83,7 @@ namespace SW01 {
         let var1 = (((adc_T >> 3) - (dig_T1 << 1)) * dig_T2) >> 11
         let var2 = (((((adc_T >> 4) - dig_T1) * ((adc_T >> 4) - dig_T1)) >> 12) * dig_T3) >> 14
         let t = var1 + var2
-        T = ((t * 5 + 128) >> 8) / 100
+        T = Math.idiv((t * 5 + 128) >> 8, 100)
         var1 = (t >> 1) - 64000
         var2 = (((var1 >> 2) * (var1 >> 2)) >> 11) * dig_P6
         var2 = var2 + ((var1 * dig_P5) << 1)
@@ -94,7 +94,7 @@ namespace SW01 {
             return; // avoid exception caused by division by zero
         let adc_P = (getreg(0xF7) << 12) + (getreg(0xF8) << 4) + (getreg(0xF9) >> 4)
         let _p = ((1048576 - adc_P) - (var2 >> 12)) * 3125
-        _p = (_p / var1) * 2;
+        _p = Math.idiv(_p, var1) * 2;
         var1 = (dig_P9 * (((_p >> 3) * (_p >> 3)) >> 13)) >> 12
         var2 = (((_p >> 2)) * dig_P8) >> 13
         P = _p + ((var1 + var2 + dig_P7) >> 4)
@@ -105,7 +105,7 @@ namespace SW01 {
         var2 = var1 - (((((var1 >> 15) * (var1 >> 15)) >> 7) * dig_H1) >> 4)
         if (var2 < 0) var2 = 0
         if (var2 > 419430400) var2 = 419430400
-        H = (var2 >> 12) / 1024
+        H = (var2 >> 12) >> 10
     }
 
     /**
