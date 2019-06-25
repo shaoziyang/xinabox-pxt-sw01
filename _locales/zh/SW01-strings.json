@@ -5,5 +5,11 @@
     "SW01.PowerOn|block": "开启传感器",
     "SW01.PowerOff|block": "关闭传感器",
     "SW01.Dewpoint|block": "露点",
+    "SW01.PressureBelowThan|block": "气压低于 %dat",
+    "SW01.PressureHigherThan|block": "气压高于 %dat",
+    "SW01.HumidityBelowThan|block": "湿度低于 %dat",
+    "SW01.HumidityHigherThan|block": "湿度高于 %dat",
+    "SW01.TemperatureBelowThan|block": "温度低于 %dat",
+    "SW01.TemperatureHigherThan|block": "温度高于 %dat",
     "SW01.Address|block": "设置地址 %addr"
 }
