@@ -11,5 +11,6 @@
     "SW01.HumidityHigherThan|block": "湿度高于 %dat",
     "SW01.TemperatureBelowThan|block": "温度低于 %dat",
     "SW01.TemperatureHigherThan|block": "温度高于 %dat",
+    "SW01.altitude|block": "高度",
     "SW01.Address|block": "设置地址 %addr"
 }
