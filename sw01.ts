@@ -271,6 +271,20 @@ namespace SW01 {
         })
     }
 
+    // power function approximate calculation for (1+x)^n, x~0
+    function apow(x: number, n: number): number {
+        let d = x - 1
+        return 1 + (n * d) + (n * (n - 1) * d * d) / 2
+    }
+
+    /**
+     * calaulate altitude use pressure and temperature
+     */
+    //% block="altitude"
+    export function altitude(): number {
+        return (apow(1013.25 / pressure(), 1 / 5.257) - 1.0) * (temperature() + 273.15) / 0.0065
+    }
+
     /**
      * set I2C address
      */
@@ -279,4 +293,6 @@ namespace SW01 {
     export function Address(addr: BME280_I2C_ADDRESS) {
         BME280_I2C_ADDR = addr
     }
+
+
 }
