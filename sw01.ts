@@ -25,6 +25,13 @@ enum BME280_P {
     hPa = 1
 }
 
+enum LENGTH_U {
+    //% block="meter"
+    METER = 0,
+    //% block="feet"
+    FEET = 1
+}
+
 /**
  * BME280 block
  */
@@ -286,6 +293,16 @@ namespace SW01 {
     }
 
     /**
+     * calaulate cloud base using altitude, temperature and dewpoint
+     */
+    //% block="cloudbase %u"
+    export function cloudbase(%u:LENGTH_U): number {
+        let c = (((temperature() - Dewpoint()) / 4.5) * 1000) + altitude()
+        if(u) c = c * 3.28
+        return c
+    }
+
+    /**
      * set I2C address
      */
     //% blockId="BME280_SET_ADDRESS" block="set address %addr"
@@ -293,6 +310,5 @@ namespace SW01 {
     export function Address(addr: BME280_I2C_ADDRESS) {
         BME280_I2C_ADDR = addr
     }
-
 
 }
