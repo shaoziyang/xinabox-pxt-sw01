@@ -289,16 +289,18 @@ namespace SW01 {
      */
     //% block="altitude"
     export function altitude(): number {
-        return (apow(1013.25 / pressure(), 1 / 5.257) - 1.0) * (temperature() + 273.15) / 0.0065
+        get()
+        return (apow(101325 / P, 1 / 5.257) - 1.0) * (T + 273.15) / 0.0065
     }
 
     /**
      * calaulate cloud base using altitude, temperature and dewpoint
      */
     //% block="cloudbase %u"
-    export function cloudbase(%u:LENGTH_U): number {
-        let c = (((temperature() - Dewpoint()) / 4.5) * 1000) + altitude()
-        if(u) c = c * 3.28
+    export function cloudbase(u: LENGTH_U): number {
+        get()
+        let c = (((T - Dewpoint()) / 4.5) * 1000) + altitude()
+        if (u) c = c * 3.28
         return c
     }
 
